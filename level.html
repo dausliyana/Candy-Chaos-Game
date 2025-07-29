@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Candy Chaos Level Page</title>
+  <link rel="stylesheet" href="level.css" />
+</head>
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+  <source src="background-music.mp3" type="audio/mpeg" />
+</audio>
+
+<!-- Mute/Unmute Button -->
+<img src="unmute.png" id="muteBtn" alt="Toggle Sound" />
+
+<!-- Instructions Button -->
+<img src="instruction-button.png" id="showInstructions" alt="Instructions Button" />
+
+<!-- Instructions Popup -->
+<div id="instructionBox" class="hidden">
+  <div class="popup-content">
+    <img src="instruction-popup.png" alt="Instructions" class="popup-img" />
+    <span class="close-btn" id="closeInstructions">×</span>
+  </div>
+</div>
+
+<div class="wrapper">
+  <img src="2title.png" alt="Candy Chaos" class="title-image" />
+
+  <div class="door-container">
+    <a href="Game/index.html" class="door1">
+      <div class="arrow">⬆️</div>
+      <img src="door1.png" alt="Door 1" class="door-image" />
+    </a>
+    <a href="Game/index2.html" class="door2">
+      <div class="arrow">⬆️</div>
+      <img src="door2.png" alt="Door 2" class="door-image" />
+    </a>
+    <a href="Game/index3.html" class="door3">
+      <div class="arrow">⬆️</div>
+      <img src="door3.png" alt="Door 3" class="door-image" />
+    </a>
+  </div>
+
+  <div class="level-container"></div>
+</div>
+
+<script>
+  const bgMusic = document.getElementById("bgMusic");
+  const muteBtn = document.getElementById("muteBtn");
+  const instructionBtn = document.getElementById("showInstructions");
+  const instructionBox = document.getElementById("instructionBox");
+  const closeBtn = document.getElementById("closeInstructions");
+
+  // Keep playing music when clicking on page
+  window.addEventListener("click", () => {
+    bgMusic.play().catch(() => {});
+  }, { once: true });
+
+  // Load mute state
+  let isMuted = localStorage.getItem("bgMuted") === "true";
+  bgMusic.muted = isMuted;
+  muteBtn.src = isMuted ? "mute.png" : "unmute.png";
+
+  muteBtn.addEventListener("click", () => {
+    isMuted = !isMuted;
+    bgMusic.muted = isMuted;
+    muteBtn.src = isMuted ? "mute.png" : "unmute.png";
+    localStorage.setItem("bgMuted", isMuted);
+  });
+
+  instructionBtn.addEventListener("click", () => {
+    instructionBox.classList.remove("hidden");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    instructionBox.classList.add("hidden");
+  });
+
+  // Autoplay after load
+  window.addEventListener("load", () => {
+    if (!isMuted) {
+      bgMusic.play().catch(() => {});
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+/* Full-screen background */
+body {
+    background: url("level-bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dark overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 0.5 = 50% transparency */
+    z-index: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.title-image {
+    width: 600px;
+    margin-bottom: 10px; /* Adjust this value */
+    position: relative;
+    z-index: 1;
+}
+
+/* Door container */
+.door-container {
+    position: absolute;
+    top: 200px; /* Adjust this to place doors where you want */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* space between doors */
+}
+
+.door1 {
+    width: 420px;
+    height: 500px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.door2 {
+    width: 420px;
+    height: 500px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.door3 {
+    width: 340px;
+    height: 420px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.door1, .door2, .door3 {
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.door1:hover,
+.door2:hover,
+.door3:hover {
+    transform: scale(1.15);
+}
+
+.door-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.arrow {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.door1:hover .arrow,
+.door2:hover .arrow,
+.door3:hover .arrow {
+    opacity: 1;
+}
+
+
+.arrow {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.door:hover .arrow {
+    opacity: 1;
+}
+
+/* Level container */
+.level-container {
+    background-image: url("level-bg2.jpg"); /* Replace with your image filename */
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 1200px;
+    height: 500px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 70px;
+    overflow: hidden; /* Keeps rounded corners clean if image inside moves */
+}
+
+
+.Instructions body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Instruction Button in top right */
+  #showInstructions {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.3s ease;
+  }
+  
+  #showInstructions:hover {
+    transform: scale(1.1);
+  }
+  /* Popup Box */
+  #instructionBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    z-index: 1000;
+  }
+  
+  /* Content inside the popup */
+  .popup-content {
+    position: relative;
+    text-align: center;
+  }
+  
+  /* Full image for instruction box */
+  .popup-img {
+    width:600px; /* adjust as needed */
+    max-width: 90vw;
+    display: block;
+  }
+  
+  /* Close "×" button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  /* Hidden state */
+  .hidden {
+    display: none;
+  }
+
+  #muteBtn {
+    position: fixed;
+    top: 25px;
+    right: 120px; /* Pushes it to the left of the instruction button */
+    width: 100px;
+    height: 90px;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.3s ease;
+  }
+  
+  #muteBtn:hover {
+    transform: scale(1.1);
+  }

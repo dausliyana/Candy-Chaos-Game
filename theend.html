@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fullscreen Image with Back Button</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      background: url('theend.png') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      font-family: sans-serif;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #000;
+      transition: 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+    <img src="back.png" alt="Back" id="backBtn" onclick="window.location.href='../level.html';" />
+    <style>
+        #backBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 90px;
+  height: 60px;
+  cursor: pointer;
+  z-index: 10;
+}
+    </style>
+
+</body>
+</html>
